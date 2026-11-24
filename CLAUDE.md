@@ -9,7 +9,7 @@ Product spec: `master_prompt.md`. Stack: Astro static, MDX, React islands, Tailw
 - Internal links are root-relative with trailing slash (`/sql/select/`); the site adds the base path. Never hardcode a base.
 
 ## Folder map
-- `src/content/lessons/<module>/<NN-slug>.mdx` lessons (route `/<module>/<slug>/`, slug includes NN-)
+- `src/content/lessons/<module>/<NN-slug>.mdx` lessons (route `/<module>/<slug>/`; the NN- prefix is stripped from the URL, e.g. 13-joins-inner-left.mdx → `/sql/joins-inner-left/`)
 - `src/content/practice/<module>/<topic>.json`, `interview/<category>.json`, `flashcards/*.json`, `glossary/*.json`, `mcq/*.json`, `tests/*.json` (JSON arrays)
 - `src/content/projects/*.mdx`, `src/content/cases/*.mdx`
 - `src/data/` plan.json, profile.json, links.json, tools.json, datasets.json

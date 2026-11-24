@@ -50,7 +50,7 @@ const lessonData = lessons.map((file) => {
   const m = readMdx(file);
   const module = m.fm.module ?? file.split('/').slice(-2)[0];
   const slug = file.split('/').pop().replace(/\.mdx$/, '');
-  lessonRoutes.add(`/${module}/${slug}/`);
+  lessonRoutes.add(`/${module}/${slug.replace(/^\d+-/, "")}/`);
   return { file, ...m, module, slug };
 });
 const other = [...walk(join(ROOT, 'src/content/projects'), '.mdx'), ...walk(join(ROOT, 'src/content/cases'), '.mdx')].map((file) => ({ file, ...readMdx(file) }));

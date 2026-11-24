@@ -97,21 +97,21 @@ Silence is the enemy. Even a half-correct query with clear reasoning scores bett
 
 | Cue words in the question | Pattern | Key tool | Lesson |
 |---|---|---|---|
-| "second highest", "Nth highest", "3rd largest salary" | [Nth highest value](/sql/26-nth-highest-value/) | `DENSE_RANK()` or `LIMIT/OFFSET` with `DISTINCT` | Nth highest value |
-| "top 3 per department", "best product in each category" | [Top N per group](/sql/27-top-n-per-group/) | `ROW_NUMBER() OVER (PARTITION BY ...)` then `rn <= N` | Top N per group |
-| "running total", "cumulative sales", "balance so far" | [Running total](/sql/28-running-totals/) | `SUM(x) OVER (ORDER BY ...)` | Running totals |
-| "compared with last month", "growth rate", "MoM" | [Month-over-month growth](/sql/29-month-over-month-growth/) | `LAG(value) OVER (ORDER BY month)` | Month-over-month |
-| "same month last year", "YoY" | [Year-over-year](/sql/30-year-over-year-comparison/) | `LAG(value, 12)` or self-join on month | Year-over-year |
-| "retained", "came back", "cohort", "week 1 retention" | [Retention and cohort](/sql/31-retention-cohort-analysis/) | First-period cohort, then join on later activity | Retention and cohorts |
-| "step 1 to step 2 to step 3", "drop-off", "conversion funnel" | [Funnel analysis](/sql/32-funnel-analysis/) | Distinct users per step, conditional counts | Funnel analysis |
-| "consecutive days", "streak", "longest run" | [Gaps and islands](/sql/33-consecutive-days-streaks/) | Value minus `ROW_NUMBER()`, then group | Streaks |
-| "repeated", "more than once", "keep one" | Duplicates ([lesson 34](/sql/34-finding-and-handling-duplicates/)) | `GROUP BY ... HAVING COUNT(*) > 1`, `ROW_NUMBER` | 34 |
-| "median", "typical", "90th percentile" | Median and percentiles ([lesson 35](/sql/35-median-and-percentiles-in-sql/)) | `ROW_NUMBER` + `COUNT` | 35 |
-| "never", "no orders", "missing", "in A but not in B" | Anti-join ([lesson 36](/sql/36-customers-who-never-ordered/)) | `NOT EXISTS`, `LEFT JOIN ... IS NULL` | 36 |
-| "session", "visit", "30 minutes of inactivity" | Sessionisation ([lesson 37](/sql/37-sessionisation/)) | `LAG` + flag + running `SUM` | 37 |
-| "best customers", "segments", "recency frequency monetary" | RFM ([lesson 38](/sql/38-rfm-segmentation/)) | `NTILE` + `CASE` | 38 |
-| "percent of total", "share", "80 percent of revenue" | Percent of total and Pareto ([lesson 39](/sql/39-percent-of-total-and-contribution/)) | `SUM(...) OVER ()`, running `SUM` | 39 |
-| "control vs treatment", "lift", "variant" | A/B test summary ([lesson 40](/sql/40-ab-test-summary-queries/)) | Cleaning + conditional `AVG` | 40 |
+| "second highest", "Nth highest", "3rd largest salary" | [Nth highest value](/sql/nth-highest-value/) | `DENSE_RANK()` or `LIMIT/OFFSET` with `DISTINCT` | Nth highest value |
+| "top 3 per department", "best product in each category" | [Top N per group](/sql/top-n-per-group/) | `ROW_NUMBER() OVER (PARTITION BY ...)` then `rn <= N` | Top N per group |
+| "running total", "cumulative sales", "balance so far" | [Running total](/sql/running-totals/) | `SUM(x) OVER (ORDER BY ...)` | Running totals |
+| "compared with last month", "growth rate", "MoM" | [Month-over-month growth](/sql/month-over-month-growth/) | `LAG(value) OVER (ORDER BY month)` | Month-over-month |
+| "same month last year", "YoY" | [Year-over-year](/sql/year-over-year-comparison/) | `LAG(value, 12)` or self-join on month | Year-over-year |
+| "retained", "came back", "cohort", "week 1 retention" | [Retention and cohort](/sql/retention-cohort-analysis/) | First-period cohort, then join on later activity | Retention and cohorts |
+| "step 1 to step 2 to step 3", "drop-off", "conversion funnel" | [Funnel analysis](/sql/funnel-analysis/) | Distinct users per step, conditional counts | Funnel analysis |
+| "consecutive days", "streak", "longest run" | [Gaps and islands](/sql/consecutive-days-streaks/) | Value minus `ROW_NUMBER()`, then group | Streaks |
+| "repeated", "more than once", "keep one" | Duplicates ([lesson 34](/sql/finding-and-handling-duplicates/)) | `GROUP BY ... HAVING COUNT(*) > 1`, `ROW_NUMBER` | 34 |
+| "median", "typical", "90th percentile" | Median and percentiles ([lesson 35](/sql/median-and-percentiles-in-sql/)) | `ROW_NUMBER` + `COUNT` | 35 |
+| "never", "no orders", "missing", "in A but not in B" | Anti-join ([lesson 36](/sql/customers-who-never-ordered/)) | `NOT EXISTS`, `LEFT JOIN ... IS NULL` | 36 |
+| "session", "visit", "30 minutes of inactivity" | Sessionisation ([lesson 37](/sql/sessionisation/)) | `LAG` + flag + running `SUM` | 37 |
+| "best customers", "segments", "recency frequency monetary" | RFM ([lesson 38](/sql/rfm-segmentation/)) | `NTILE` + `CASE` | 38 |
+| "percent of total", "share", "80 percent of revenue" | Percent of total and Pareto ([lesson 39](/sql/percent-of-total-and-contribution/)) | `SUM(...) OVER ()`, running `SUM` | 39 |
+| "control vs treatment", "lift", "variant" | A/B test summary ([lesson 40](/sql/ab-test-summary-queries/)) | Cleaning + conditional `AVG` | 40 |
 
 ### Edge cases of the playbook itself
 
