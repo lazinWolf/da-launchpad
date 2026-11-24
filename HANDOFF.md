@@ -124,3 +124,8 @@ Everything is committed on master and the build is green. Outlines and briefs in
 - **Use worktrees** for parallel UI agents. Use reusable templates, briefs and scripts wherever possible.
 - **Add custom agent files or hooks only if they clearly pay for themselves.**
 - **Prefer smart compaction or forking** over fresh sessions. HANDOFF.md alone doesn't carry everything.
+
+## Deployment (added end of session 2)
+- Live: https://lazinwolf.github.io/da-launchpad/ (repo github.com/lazinWolf/da-launchpad, branch `master`).
+- `.github/workflows/deploy.yml` runs audit + build with `SITE_BASE=/da-launchpad/` on every push to master, then deploys to Pages.
+- Lesson URLs drop the NN- prefix (`/sql/joins-inner-left/`); audit now checks links that way.
